@@ -1,0 +1,42 @@
+Needed libraries:
+
+vlfeat - for extracting features - http://www.vlfeat.org
+yael - fast, multithreaded k-means - https://gforge.inria.fr/projects/yael/
+opencv - only used for grabcut
+liblinear
+color names - http://lear.inrialpes.fr/people/vandeweijer/software
+
+
+
+Notes:
+- if installed, the parallel toolbox can be used. just uncomment the parfor in vlfeatExtractFeatures and vlfeatCreateCodebook
+- mex-wrapper for grabcut needs to be compiled before first use
+ 
+ 
+Usage:
+ 
+recRate = experimentParts('cub200_2011',nrClasses, config, configParts)
+
+nrClasses = 200 | 14 | 3
+
+config - parameters to influence extraction of global features, a list can be found in experimentGeneral_extractGlobalFeatures.m
+configParts - for features extracted form parts, list can be found in experimentGeneral_extractPartFeatures.m
+
+Examples:
+
+* use default values:  recRate = experimentParts('cub200_2011',nrClasses, struct([]), struct([]))
+* do not use global features:  recRate = experimentParts('cub200_2011',nrClasses, struct('useGlobal','no'), struct([]))
+* do not use part features:  recRate = experimentParts('cub200_2011',nrClasses, struct([]), struct('useParts','none'))
+* use part features, estimated using nearest neighbour:  recRate = experimentParts('cub200_2011',nrClasses, struct([]), struct('useParts','nn'))
+* do not use grabcut segmentation: recRate = experimentParts('cub200_2011',nrClasses, struct('preprocessing_useMask','none'), struct('useParts','none'))
+* use the k-best part estimations: recRate = experimentParts_knn('cub200_2011',nrClasses, struct([]), struct([]))
+
+   
+Algorithm:
+
+* opoonentSift and Colorname features are used
+* classification is done using liblinear and an approximated chi square kernel 
+* global features can be extracted from the whole image, the provided bounding box or from a grabcut segmentation
+* left and right instances of part features are pooled
+* for classification all features are concatenated
+ 
