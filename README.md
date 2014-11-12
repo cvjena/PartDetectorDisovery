@@ -10,6 +10,8 @@ If you would like to refer to this work, please cite the corresponding paper
       year = {2014},
     }
 
+The following steps will guide you through the usage of the code.
+
 ## 1. Python Environment
 Setup a python environment, preferably a virtual environment using e. g. virtual_env. The requirements file might install more than you need. 
 
