@@ -1,4 +1,14 @@
-# Framework for Part Detector Discovery in Deep Convolutional Neural Networks
+# Part Detector Discovery
+
+This is the code used in our paper "Part Detector Discovery in Deep Convolutional Neural Networks" by Marcel Simon, Erik Rodner and Joachim Denzler published at ACCV 2014. 
+If you would like to refer to this work, please cite the corresponding paper
+
+    @inproceedings{Simon14:PDD,
+      author = {Marcel Simon and Erik Rodner and Joachim Denzler},
+      booktitle = {Asian Conference on Computer Vision (ACCV)},
+      title = {Part Detector Discovery in Deep Convolutional Neural Networks},
+      year = {2014},
+    }
 
 ## 1. Python Environment
 Setup a python environment, preferably a virtual environment using e. g. virtual_env. The requirements file might install more than you need. 
@@ -86,16 +96,6 @@ The last one is the setup for the part features. You can select here, which part
 `'preprocessing_relativePartSize'` adjusts the size of patches, that are extracted at the estimated part locations. Please have a look at the paper for more information. 
 
 For the remaining options, you should keep everything as it is. 
-
-## Paper 
-If you would like to refer to this work, please cite the corresponding paper
-
-    @inproceedings{Simon14:PDD,
-      author = {Marcel Simon and Erik Rodner and Joachim Denzler},
-      booktitle = {Asian Conference on Computer Vision (ACCV)},
-      title = {Part Detector Discovery in Deep Convolutional Neural Networks},
-      year = {2014},
-    }
 
 ## Acknowledgements
 The classification framework is an extension of the excellent fine-grained recognition framework by Christoph Göring, Erik Rodner, Alexander Freytag and Joachim Denzler. You can find their project at [https://github.com/cvjena/finegrained-cvpr2014](https://github.com/cvjena/finegrained-cvpr2014).
